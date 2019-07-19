@@ -2,8 +2,12 @@ import React from 'react'
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {getToken} from './config/getToken'
-function RegisterForm({ values, errors, touched, isSubmitting}) {
+import {useLocalStorage} from '../hooks/useLocalStorage'
+function RegisterForm({ props, values, errors, touched, isSubmitting}) {
   // console.log('values:', values)
+
+  const token = useLocalStorage("token")
+  
   return (
 
   <div className="ui centered grid container">
@@ -61,8 +65,7 @@ const FormikRegisterForm = withFormik({
         .post("http://localhost:5000/api/register", values)
         .then(res => {
           console.log(res); // Data was created successfully and logs to console
-         
-          localStorage.setItem('token', res.data.token)
+          props.setToken(res.data.token)
           props.history.push('/profile')
           resetForm();
           setSubmitting(false);
