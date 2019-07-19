@@ -1,8 +1,7 @@
 import React from 'react';
 import {
   Route,
-  Link,
-  Redirect
+  Link
 } from "react-router-dom";
 
 import RegisterForm from './components/RegisterForm'
