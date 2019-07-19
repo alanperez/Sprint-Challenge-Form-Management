@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import {getToken} from './config/getToken'
 function Profile({ history }) {
   const [initData, setData] = useState([]);
@@ -18,11 +17,11 @@ function Profile({ history }) {
         <ul>
         {initData.map((food, i) => (
             <li key={i}>
-            <span>{food.name}</span>
+            <span>Dish Name: {food.name}</span>
             <br></br>
-            <span>{food.course}</span>
+            <span>Course: {food.course}</span>
             <br></br>
-            <span>{food.technique}</span>
+            <span>Technique: {food.technique}</span>
           </li>
           ))}
         </ul>

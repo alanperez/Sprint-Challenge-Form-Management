@@ -1,32 +1,36 @@
 import React from 'react'
 import { withFormik, Form, Field } from "formik";
-import axios from "axios";
 import * as Yup from "yup";
 import {getToken} from './config/getToken'
 function RegisterForm({ values, errors, touched, isSubmitting}) {
   // console.log('values:', values)
   return (
-    
-    <Form>
-     <div style={{margin: '50px auto'}}>
 
-      <div>
+  <div className="ui centered grid container">
+    <Form className="page-login ">
+     <div className="ui icon warning message">
+      <div className="nine wide column">
+
+      <div >
         {touched.username && errors.username && <p>{errors.username}</p>}
-        <Field type="text" name="username" placeholder="Username" />
+        <Field  className="field" type="text" name="username" placeholder="Username" />
       </div>
 
       <div>
         {touched.password && errors.password && <p>{errors.password}</p>}
-        <Field type="password" name="password" placeholder="Password" />
+        <Field  className="field" type="password" name="password" placeholder="Password" />
       </div>
 
       <div>
 
-      <button disabled={isSubmitting} type='submit'>Submit!</button>
+      <button className="ui primary labeled icon button" style={{textAlign:'center'}}disabled={isSubmitting} type='submit'> <i className="unlock alternate icon"></i>
+                Register</button>
       </div>
         
+      </div>
      </div>
     </Form>
+  </div>
   );
 }
 
